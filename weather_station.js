@@ -7,12 +7,32 @@ const WeatherMachine = {
     location: {
         items: [
             {
+                name: 'London',
+                longitude: '5',
+                latitude: '0'
+            },
+            {
                 name: 'Nairobi',
                 longitude: '5',
                 latitude: '0'
             },
             {
                 name: 'Kisumu',
+                longitude: '15',
+                latitude: '0'
+            },
+            {
+                name: 'Mombasa',
+                longitude: '15',
+                latitude: '0'
+            },
+            {
+                name: 'Nakuru',
+                longitude: '15',
+                latitude: '0'
+            },
+            {
+                name: 'Siaya',
                 longitude: '15',
                 latitude: '0'
             }
@@ -51,15 +71,31 @@ const WeatherMachine = {
     }
 }
 
+// Getting the locations from the weather station object and assign to variable.
+const locations = WeatherMachine.location.items;
+
+// Get the select element for locations
+const location_selector = document.getElementById('location-selector');
+
+function addLocationToSelector(location) {
+    // Create option element from scratch
+    const option = document.createElement('option');
+    option.value = location.name;
+    option.text = location.name;
+  
+    location_selector.appendChild(option);
+}
+
+// loop through the array and create an option element for evey location
+locations.forEach(addLocationToSelector);
+
+
 
 const button = document.getElementById("weather_machine");
 
 
 // event handler
 const hoverOverButton = () => {
-    // maizePlant.harvest();
-    console.log('Height: ', maizePlant.height)
-
     // 1. Get the div where we are going to write text
     const weather_station = document.getElementById("content");
 
