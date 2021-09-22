@@ -52,7 +52,7 @@ const WeatherMachine = {
         }
     },
     time: {
-        months: ['January']
+        months: ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december']
     },
     weather: {
         currentWeather: {},
@@ -89,7 +89,23 @@ function addLocationToSelector(location) {
 // loop through the array and create an option element for evey location
 locations.forEach(addLocationToSelector);
 
+// Get the months from the weather machine as a variable
+const months = WeatherMachine.time.months;
 
+// Create a hnadler for adding months as an option
+const month_selector = document.getElementById('month-selector');
+
+function addMonthToSelector (month) {
+    const option = document.createElement('option');
+
+    option.value = month
+    // Make the text display with the first character in uppercase
+    option.text = month
+
+    month_selector.appendChild(option);
+}
+
+months.forEach(addMonthToSelector);
 
 const button = document.getElementById("weather_machine");
 
