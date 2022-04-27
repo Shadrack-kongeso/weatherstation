@@ -54,6 +54,7 @@ const WeatherMachine = {
     time: {
         months: ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december']
     },
+    
     weather: {
         currentWeather: {},
         samples: [],
@@ -95,12 +96,28 @@ const months = WeatherMachine.time.months;
 // Create a hnadler for adding months as an option
 const month_selector = document.getElementById('month-selector');
 
+function uppercaseFirstLetter (word){
+    //Get the first letter of the word
+const firstLetter = word.charAt(0).toUpperCase() + word.slice(1)
+
+//convert letter to uppercase
+//const uppercasedfirstLetter = firstLetter.toUpperCase()
+//Revove the first letter from the word
+//const trimWord = word.slice(1)
+//Join the two strings.
+return firstLetter
+
+
+
+
+}
+
 function addMonthToSelector (month) {
     const option = document.createElement('option');
 
     option.value = month
     // Make the text display with the first character in uppercase
-    option.text = month
+    option.text = month.charAt(0).toUpperCase() + month.slice(1)//uppercaseFirstLetter(month)
 
     month_selector.appendChild(option);
 }
